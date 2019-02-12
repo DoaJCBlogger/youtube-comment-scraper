@@ -1,4 +1,6 @@
 var commentPages = []
+var videoTitleGlobal = ""
+var commentCountGlobal = 0
 
 /*************************************
  ** UI functions
@@ -62,6 +64,9 @@ function displayVideoDetails (title, commentCount, videoId) {
     'href',
     'https://www.youtube.com/watch?v=' + videoId
   )
+  
+  videoTitleGlobal = title;
+  commentCountGlobal = commentCount;
 
   if (commentCount) {
     $('#video-detail .comment-count').text(commentCount + ' comments')
@@ -249,10 +254,10 @@ function downloadJson (videoID, callback) {
 
   setTimeout(function () {
     var requiredFields = getFieldOptions()
-    var resultArray = buildResultArray(commentPages, requiredFields)
+	var resultArray = buildResultArray(commentPages, requiredFields)
     download(
       generateJsonFile(resultArray),
-      'comments-' + videoID + '.json',
+      videoTitleGlobal + '.comments(' + commentCountGlobal + ').json',
       'text/plain'
     )
 
