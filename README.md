@@ -15,7 +15,7 @@ The results include the following information:
 * Comment Text
 * Replies
 
-To see it in action go to: [ytcomments.klostermann.ca](http://ytcomments.klostermann.ca)
+This fork saves the JSON result as "[video_title].comments([comment_count]).json"
 
 ## Dependencies
 A number of third party resources are required and need to be placed in the indicated directories.
